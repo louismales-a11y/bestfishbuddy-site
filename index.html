@@ -10,19 +10,36 @@
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #0A0E1A; background: #F0F4FF; }
         .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
-        /* ─── Header ─── */
-        header { background: linear-gradient(135deg, #0A1628 0%, #0D2137 50%, #0A1A2E 100%); color: white; padding: 50px 0 60px; text-align: center; }
-        header .logo { margin-bottom: 10px; }
-        header h1 { font-size: 2.8em; font-weight: 800; letter-spacing: 1px; }
-        header .subtitle { font-size: 1.1em; color: #76FF03; margin-top: 8px; letter-spacing: 4px; font-weight: 600; }
-        header .flags { font-size: 2em; margin: 12px 0 16px; }
-        header .tagline { font-size: 1.2em; color: #B0BEC5; max-width: 600px; margin: 0 auto; line-height: 1.5; }
-        .download-buttons { display: flex; justify-content: center; gap: 16px; margin-top: 30px; flex-wrap: wrap; }
-        .btn { display: inline-flex; align-items: center; gap: 10px; padding: 15px 36px; border-radius: 14px; text-decoration: none; font-weight: 700; font-size: 1em; transition: all 0.2s; }
+        /* ─── Header (matches app splash screen) ─── */
+        header {
+            background: linear-gradient(to bottom, #0A1628 0%, #0D2137 30%, #0A1A2E 70%, #06101E 100%);
+            color: white; padding: 40px 0 50px; text-align: center;
+        }
+        header .logo { margin-bottom: 8px; }
+        header h1 {
+            font-size: 2.8em; font-weight: 800; letter-spacing: 1.5px;
+            color: #76FF03; margin-bottom: 6px;
+        }
+        header .tagline {
+            font-size: 1em; font-weight: 400; color: white;
+            letter-spacing: 3px; margin-bottom: 4px;
+        }
+        header .version-label {
+            font-size: 0.75em; font-weight: 700; color: #76FF03;
+            letter-spacing: 4px; margin-bottom: 8px;
+        }
+        header .flags { font-size: 2em; margin: 8px 0 16px; letter-spacing: 8px; }
+        .download-buttons { display: flex; justify-content: center; gap: 16px; margin-top: 24px; flex-wrap: wrap; }
+        .btn {
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 15px 36px; border-radius: 14px; text-decoration: none;
+            font-weight: 700; font-size: 1em; transition: all 0.2s;
+            letter-spacing: 1.5px;
+        }
         .btn-free { background: #00BCD4; color: #003544; }
         .btn-pro { background: #76FF03; color: #003544; box-shadow: 0 4px 20px rgba(118,255,3,0.3); }
         .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,0,0,0.3); }
-        .btn-small { padding: 10px 24px; font-size: 0.9em; }
+        .btn-small { padding: 10px 24px; font-size: 0.85em; letter-spacing: 1px; }
 
         /* ─── Section ─── */
         section { padding: 60px 0; }
@@ -34,9 +51,14 @@
         .feature { background: white; border-radius: 16px; padding: 24px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); transition: transform 0.2s; }
         .feature:hover { transform: translateY(-2px); }
         .feature .icon { font-size: 2em; margin-bottom: 10px; }
-        .feature h3 { font-size: 1.1em; margin-bottom: 6px; }
+        .feature h3 { font-size: 1.1em; margin-bottom: 6px; color: #0A1628; }
         .feature p { font-size: 0.9em; color: #666; line-height: 1.6; }
-        .feature .pro-badge { display: inline-block; background: linear-gradient(135deg, #FFD700, #FFA000); color: #3E2723; font-size: 0.7em; font-weight: 700; padding: 2px 10px; border-radius: 20px; margin-left: 8px; vertical-align: middle; text-transform: uppercase; letter-spacing: 1px; }
+        .feature .pro-badge {
+            display: inline-block; background: linear-gradient(135deg, #FFD700, #FFA000);
+            color: #3E2723; font-size: 0.65em; font-weight: 700; padding: 2px 10px;
+            border-radius: 20px; margin-left: 8px; vertical-align: middle;
+            text-transform: uppercase; letter-spacing: 1px;
+        }
 
         /* ─── Comparison Table ─── */
         .comparison { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
@@ -52,27 +74,21 @@
         .comparison .check { color: #4CAF50; font-size: 1.2em; }
         .comparison .cross { color: #E53935; font-size: 1.2em; }
         .comparison .count { color: #888; font-size: 0.85em; }
-        .comparison tr:hover { background: #FAFAFA; }
 
         /* ─── QR ─── */
         .qr-section { text-align: center; }
         .qr-box { display: inline-block; background: white; padding: 20px; border-radius: 20px; box-shadow: 0 2px 15px rgba(0,0,0,0.08); }
+        .qr-box img { width: 200px; height: 200px; display: block; }
 
         /* ─── Contact ─── */
         .contact-info { text-align: center; background: white; border-radius: 16px; padding: 40px; max-width: 500px; margin: 0 auto; }
         .contact-info p { margin: 8px 0; font-size: 1em; color: #555; }
         .contact-info a { color: #00BCD4; text-decoration: none; font-weight: 600; }
-        .contact-info a:hover { text-decoration: underline; }
 
         /* ─── Footer ─── */
         footer { background: #0A0E1A; color: #888; padding: 36px 0; text-align: center; font-size: 1.02em; line-height: 1.8; }
         footer a { color: #00BCD4; text-decoration: none; }
         footer a:hover { text-decoration: underline; }
-
-        /* ─── Nav ─── */
-        nav { background: #0A0E1A; padding: 12px 0; text-align: center; }
-        nav a { color: #B0BEC5; text-decoration: none; margin: 0 16px; font-size: 0.9em; font-weight: 500; }
-        nav a:hover { color: white; }
 
         @media (max-width: 768px) {
             header h1 { font-size: 1.8em; }
@@ -85,20 +101,13 @@
 </head>
 <body>
 
-<nav>
-    <a href="#features">Features</a>
-    <a href="#compare">Free vs Pro</a>
-    <a href="#download">Download</a>
-    <a href="#contact">Contact</a>
-</nav>
-
 <header>
     <div class="container">
         <div class="logo"><img src="assets/app-logo.png" alt="Best Fish Buddy" style="height:160px;"></div>
         <h1>Best Fish Buddy</h1>
-        <div class="subtitle">FOR BRAGGING RIGHTS!</div>
+        <div class="tagline">FOR BRAGGING RIGHTS!</div>
+        <div class="version-label">PRO-VERSION</div>
         <div class="flags">🇨🇦  🇺🇸</div>
-        <p class="tagline">The ultimate fishing companion for Canadian and US waters.<br>Track catches, identify fish, check conditions, and fish with friends.</p>
         <div class="download-buttons">
             <a href="https://tinyurl.com/2a2kkl7r" class="btn btn-free">📱 Download Free</a>
             <a href="https://tinyurl.com/2379xefr" class="btn btn-pro">⭐ Get Pro</a>
@@ -163,7 +172,7 @@
                 <p>Back up your catches to the cloud and sync across devices. Fish Together mode lets you share catches and chat with friends in real time during a session.</p>
             </div>
             <div class="feature">
-                <div class="icon">🗺️</div>
+                <div class="icon">🚢</div>
                 <h3>Nautical Charts <span class="pro-badge">Pro</span></h3>
                 <p>OpenSeaMap overlay on the map shows water depths, shipwrecks, buoys, marinas, and navigation aids. Find underwater structure where fish hold — right on your phone.</p>
             </div>
@@ -205,11 +214,11 @@
                     <tr><td>Cloud sync & Fish Together sessions</td><td><span class="cross">✗</span></td><td><span class="check">✓</span></td></tr>
                     <tr><td>Stats, charts & achievement badges</td><td><span class="cross">✗</span></td><td><span class="check">✓</span></td></tr>
                     <tr><td>Delete catches</td><td><span class="cross">✗</span></td><td><span class="check">✓</span></td></tr>
-                    <tr><td>Unlimited catches & tackle</td><td><span class="cross">✗</span> <span class="count">(10 catch limit)</span></td><td><span class="check">✓</span></td></tr>
+                    <tr><td>Unlimited catches & tackle</td><td><span class="cross">✗</span></td><td><span class="check">✓</span></td></tr>
                     <tr style="background: #FAFAFA; font-weight: 700;">
                         <td></td>
-                        <td style="text-align:center;"><a href="https://tinyurl.com/2a2kkl7r" class="btn btn-free btn-small" style="font-size:0.85em;">📱 Download Free</a></td>
-                        <td style="text-align:center;"><a href="https://tinyurl.com/2379xefr" class="btn btn-pro btn-small" style="font-size:0.85em;">⭐ Get Pro</a></td>
+                        <td style="text-align:center;"><a href="https://tinyurl.com/2a2kkl7r" class="btn btn-free btn-small">📱 Download Free</a></td>
+                        <td style="text-align:center;"><a href="https://tinyurl.com/2379xefr" class="btn btn-pro btn-small">⭐ Get Pro</a></td>
                     </tr>
                 </tbody>
             </table>
@@ -223,7 +232,7 @@
         <h2>Scan to Download Free</h2>
         <p class="subtitle">Point your phone camera at the QR code to get the Free version instantly.</p>
         <div class="qr-box">
-            <img src="assets/qr-free.png" alt="QR Code - Download Best Fish Buddy Free" style="width:200px;height:200px;">
+            <img src="assets/qr-free.png" alt="QR Code - Download Best Fish Buddy Free">
         </div>
         <p style="margin-top:12px;color:#888;font-size:0.9em;">Or visit <a href="https://tinyurl.com/2a2kkl7r" style="color:#00BCD4;">tinyurl.com/2a2kkl7r</a> on your phone</p>
     </div>
