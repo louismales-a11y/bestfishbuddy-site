@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Fish Buddy - Canada/US Fishing Companion</title>
+    <meta name="description" content="Best Fish Buddy - The ultimate fishing companion for Canadian and US waters. Track catches, identify fish, check weather, and more!">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #0A0E1A; background: #F0F4FF; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Header */
+        header { background: linear-gradient(135deg, #0A1628 0%, #0D2137 50%, #0A1A2E 100%); color: white; padding: 40px 0 60px; text-align: center; }
+        header h1 { font-size: 2.5em; font-weight: 800; letter-spacing: 1px; }
+        header .subtitle { font-size: 1.1em; color: #76FF03; margin-top: 8px; letter-spacing: 3px; }
+        header .flags { font-size: 2em; margin-top: 10px; }
+        header .tagline { font-size: 1.2em; margin-top: 20px; color: #B0BEC5; }
+        
+        /* Buttons */
+        .download-buttons { display: flex; justify-content: center; gap: 16px; margin-top: 30px; flex-wrap: wrap; }
+        .btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 32px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 1em; transition: all 0.2s; }
+        .btn-free { background: #00BCD4; color: #003544; }
+        .btn-pro { background: #76FF03; color: #003544; }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.3); }
+        .btn-icon { font-size: 1.3em; }
+        
+        /* Section */
+        section { padding: 60px 0; }
+        section h2 { font-size: 1.8em; font-weight: 700; text-align: center; margin-bottom: 40px; }
+        
+        /* Features grid */
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+        .feature { background: white; border-radius: 16px; padding: 24px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .feature .icon { font-size: 2em; margin-bottom: 12px; }
+        .feature h3 { font-size: 1.1em; margin-bottom: 8px; }
+        .feature p { font-size: 0.9em; color: #666; line-height: 1.5; }
+        
+        /* Screenshot slideshow */
+        .slideshow-container { position: relative; max-width: 320px; margin: 0 auto; }
+        .slide { display: none; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.15); }
+        .slide.active { display: block; }
+        .slide img { width: 100%; display: block; }
+        .slide-caption { text-align: center; margin-top: 12px; color: #666; font-size: 0.9em; }
+        .slide-dots { text-align: center; margin-top: 16px; }
+        .dot { display: inline-block; width: 10px; height: 10px; margin: 0 5px; background: #ccc; border-radius: 50%; cursor: pointer; }
+        .dot.active { background: #00BCD4; }
+        .slide-nav { display: flex; justify-content: center; gap: 20px; margin-top: 16px; }
+        .slide-nav button { background: none; border: 2px solid #00BCD4; color: #00BCD4; padding: 8px 20px; border-radius: 8px; cursor: pointer; font-weight: 600; }
+        .slide-nav button:hover { background: #00BCD4; color: white; }
+        
+        /* QR Code */
+        .qr-section { text-align: center; padding: 40px 0; }
+        .qr-section img { width: 200px; height: 200px; border-radius: 16px; padding: 16px; background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .qr-section p { margin-top: 12px; font-size: 0.9em; color: #666; }
+        
+        /* Footer */
+        footer { background: #0A0E1A; color: #888; padding: 30px 0; text-align: center; font-size: 0.85em; }
+        footer a { color: #00BCD4; text-decoration: none; }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.8em; }
+            .download-buttons { flex-direction: column; align-items: center; }
+            .btn { width: 100%; max-width: 300px; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1>Best Fish Buddy</h1>
+        <div class="subtitle">FOR BRAGGING RIGHTS!</div>
+        <div class="flags">🇨🇦  🇺🇸</div>
+        <p class="tagline">The ultimate fishing companion for North American waters</p>
+        <div class="download-buttons">
+            <a href="https://tinyurl.com/2a2kkl7r" class="btn btn-free">
+                <span class="btn-icon">📱</span> Download Free
+            </a>
+            <a href="https://tinyurl.com/2379xefr" class="btn btn-pro">
+                <span class="btn-icon">⭐</span> Get Pro
+            </a>
+        </div>
+    </div>
+</header>
+
+<section>
+    <div class="container">
+        <h2>Your Fishing Companion</h2>
+        <div class="features">
+            <div class="feature">
+                <div class="icon">🎣</div>
+                <h3>Log Your Catches</h3>
+                <p>Record every catch with species, weight, length, location, weather, and photos. Voice logging for hands-free recording!</p>
+            </div>
+            <div class="feature">
+                <div class="icon">🐟</div>
+                <h3>Fish ID Field Guide</h3>
+                <p>305 freshwater species with photos, descriptions, fishing tips, and region filters. Identify what you caught instantly.</p>
+            </div>
+            <div class="feature">
+                <div class="icon">🗺️</div>
+                <h3>Smart Map</h3>
+                <p>See all catches plotted on an interactive map with species pins. Nautical charts with depths, wrecks, and buoys.</p>
+            </div>
+            <div class="feature">
+                <div class="icon">🌤️</div>
+                <h3>Weather & Solunar</h3>
+                <p>Current conditions, 5-day forecast, and solunar-based predictions for the best fishing times in your area.</p>
+            </div>
+            <div class="feature">
+                <div class="icon">👥</div>
+                <h3>Community Stats</h3>
+                <p>Search any lake to see what fellow anglers are catching, what lures work best, and peak seasons. (Pro feature)</p>
+            </div>
+            <div class="feature">
+                <div class="icon">☁️</div>
+                <h3>Cloud Sync</h3>
+                <p>Back up your catches, sync across devices, and fish together with friends in real time.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section style="background: white;">
+    <div class="container">
+        <h2>See It In Action</h2>
+        <div class="slideshow-container">
+            <div class="slide active">
+                <div style="background: linear-gradient(135deg, #0A1628, #0D2137); height: 500px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5em; border-radius: 20px;">
+                    <div style="text-align:center; padding:20px;">
+                        <div style="font-size:3em; margin-bottom:16px;">🎣</div>
+                        <div style="font-weight:700;">Log Your Catches</div>
+                        <div style="color:#76FF03; margin-top:8px; font-size:0.7em;">With photos, weather & GPS</div>
+                    </div>
+                </div>
+                <div class="slide-caption">Record every catch with species, weight, length, and location</div>
+            </div>
+            <div class="slide">
+                <div style="background: linear-gradient(135deg, #0A1628, #0D2137); height: 500px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5em; border-radius: 20px;">
+                    <div style="text-align:center; padding:20px;">
+                        <div style="font-size:3em; margin-bottom:16px;">🐟</div>
+                        <div style="font-weight:700;">305 Fish Species</div>
+                        <div style="color:#76FF03; margin-top:8px; font-size:0.7em;">Field guide with photos & tips</div>
+                    </div>
+                </div>
+                <div class="slide-caption">Identify fish with the built-in field guide</div>
+            </div>
+            <div class="slide">
+                <div style="background: linear-gradient(135deg, #0A1628, #0D2137); height: 500px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5em; border-radius: 20px;">
+                    <div style="text-align:center; padding:20px;">
+                        <div style="font-size:3em; margin-bottom:16px;">🗺️</div>
+                        <div style="font-weight:700;">Nautical Charts</div>
+                        <div style="color:#76FF03; margin-top:8px; font-size:0.7em;">Depths, wrecks & buoys overlay</div>
+                    </div>
+                </div>
+                <div class="slide-caption">Toggle nautical charts to find underwater structure</div>
+            </div>
+            <div class="slide">
+                <div style="background: linear-gradient(135deg, #0A1628, #0D2137); height: 500px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5em; border-radius: 20px;">
+                    <div style="text-align:center; padding:20px;">
+                        <div style="font-size:3em; margin-bottom:16px;">👥</div>
+                        <div style="font-weight:700;">Community Stats</div>
+                        <div style="color:#76FF03; margin-top:8px; font-size:0.7em;">Powered by Google Places</div>
+                    </div>
+                </div>
+                <div class="slide-caption">Search any lake to see what's biting (Pro)</div>
+            </div>
+            <div class="slide-dots">
+                <span class="dot active" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(4)"></span>
+            </div>
+            <div class="slide-nav">
+                <button onclick="changeSlide(-1)">‹ Prev</button>
+                <button onclick="changeSlide(1)">Next ›</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="qr-section">
+    <div class="container">
+        <h2>Scan to Download Free</h2>
+        <div style="background: white; display: inline-block; padding: 20px; border-radius: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+            <div style="width:200px;height:200px;display:flex;align-items:center;justify-content:center;background:white;border-radius:12px;">
+                <div style="text-align:center;color:#0A0E1A;">
+                    <div style="font-size:3em;">📱</div>
+                    <div style="font-size:0.8em;margin-top:4px;">tinyurl.com/2a2kkl7r</div>
+                </div>
+            </div>
+        </div>
+        <p>Scan with your phone camera to download the Free version</p>
+    </div>
+</section>
+
+<section style="background: white;">
+    <div class="container" style="text-align:center;">
+        <h2>Ready for the full experience?</h2>
+        <p style="max-width:600px;margin:0 auto 24px;color:#666;font-size:1.1em;">
+            Upgrade to Pro for unlimited catches, community lake stats, advanced charts, badges, and more!
+        </p>
+        <a href="https://tinyurl.com/2379xefr" class="btn btn-pro" style="font-size:1.1em;padding:16px 40px;">
+            <span class="btn-icon">⭐</span> Get Pro
+        </a>
+        <p style="margin-top:16px;font-size:0.85em;color:#888;">
+            📧 Questions? <a href="mailto:BestfishBuddy@gmail.com" style="color:#00BCD4;">BestfishBuddy@gmail.com</a>
+        </p>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>© 2026 Best Fish Buddy. All rights reserved.</p>
+        <p style="margin-top:8px;">
+            <a href="https://github.com/louismales-a11y/BestFishBuddy">GitHub</a> · 
+            <a href="mailto:BestfishBuddy@gmail.com">Contact</a> · 
+            <a href="privacy.html">Privacy</a>
+        </p>
+    </div>
+</footer>
+
+<script>
+let slideIndex = 0;
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.dot');
+let autoSlide;
+
+function showSlide(n) {
+    slides.forEach(s => s.classList.remove('active'));
+    dots.forEach(d => d.classList.remove('active'));
+    slideIndex = ((n % slides.length) + slides.length) % slides.length;
+    slides[slideIndex].classList.add('active');
+    dots[slideIndex].classList.add('active');
+}
+
+function changeSlide(n) { showSlide(slideIndex + n); resetAuto(); }
+function currentSlide(n) { showSlide(n - 1); resetAuto(); }
+function resetAuto() { clearInterval(autoSlide); autoSlide = setInterval(() => showSlide(slideIndex + 1), 4000); }
+
+autoSlide = setInterval(() => showSlide(slideIndex + 1), 4000);
+</script>
+
+</body>
+</html>
