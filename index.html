@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Best Fish Buddy - Fishing Companion for Canada & USA</title>
-    <meta name="description" content="Best Fish Buddy - The ultimate fishing companion app for Canadian and US waters. Track catches, identify 305 fish species, check weather, get community stats, and more!">
+    <title>Best Fish Buddy v1.9.14 - Fishing Companion for Canada & USA</title>
+    <meta name="description" content="Best Fish Buddy - The ultimate fishing companion app for Canadian and US waters. Track catches, identify 305 fish species, interactive map with nautical charts, depth overlays, weather radar, and more!">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #0A0E1A; background: #F0F4FF; }
@@ -133,13 +133,33 @@
             </div>
             <div class="feature">
                 <div class="icon">🗺️</div>
-                <h3>Interactive Map</h3>
-                <p>See all your catches plotted on a map with species pins. Favorite spots, GPS location, and offline map downloads included. Toggle nautical charts to see water depths, wrecks, and buoys.</p>
+                <h3>Interactive Map with Tools Panel</h3>
+                <p>See all your catches plotted on a map with species pins. A collapsible side panel gives you quick access to nautical charts, depth contours, weather radar, GPS locate, and saved spots. Long-press anywhere to save a spot or log a depth reading.</p>
+            </div>
+            <div class="feature">
+                <div class="icon">🚢</div>
+                <h3>Nautical Charts & Depth Overlays</h3>
+                <p>OpenSeaMap overlays show water depths, shipwrecks, buoys, and navigation aids. Toggle depth contour lines to find drop-offs, deep holes, and underwater structure where fish hold.</p>
+            </div>
+            <div class="feature">
+                <div class="icon">☁️</div>
+                <h3>Weather Radar Overlay</h3>
+                <p>See live weather on the map — toggle between cloud cover, precipitation radar, and temperature overlays. Plan around incoming storms or find the clearest skies for your trip.</p>
+            </div>
+            <div class="feature">
+                <div class="icon">📥</div>
+                <h3>Offline Region Selector</h3>
+                <p>Tap two corners on the map to select exactly which area to cache. Name your region and it downloads base maps plus active overlays (nautical, depth, weather) for offline use. Manage regions individually.</p>
+            </div>
+            <div class="feature">
+                <div class="icon">⚖️</div>
+                <h3>Crowdsourced Depth Logging</h3>
+                <p>Long-press on the map to log a depth reading from your fish finder (or an estimate). Saved with exact GPS coordinates. Toggle depth markers on the map to see all logged depths. Every submission helps build a free community depth database.</p>
             </div>
             <div class="feature">
                 <div class="icon">🌤️</div>
                 <h3>Weather & Best Times</h3>
-                <p>Real-time weather conditions and 5-day forecast. Solunar-based predictions show you the best fishing periods, moon phases, wind, and marine conditions for your location.</p>
+                <p>Real-time weather conditions and 5-day forecast. Solunar-based predictions show you the best fishing periods, moon phases, wind, and marine conditions for your location. Get push notification alerts for severe weather.</p>
             </div>
             <div class="feature">
                 <div class="icon">🎤</div>
@@ -172,19 +192,9 @@
                 <p>Back up your catches to the cloud and sync across devices. Fish Together mode lets you share catches and chat with friends in real time during a session.</p>
             </div>
             <div class="feature">
-                <div class="icon">🚢</div>
-                <h3>Nautical Charts <span class="pro-badge">Pro</span></h3>
-                <p>OpenSeaMap overlay on the map shows water depths, shipwrecks, buoys, marinas, and navigation aids. Find underwater structure where fish hold — right on your phone.</p>
-            </div>
-            <div class="feature">
-                <div class="icon">🌍</div>
-                <h3>Depth Contours <span class="pro-badge">Pro</span></h3>
-                <p>OpenSeaMap depth overlay shows contour lines on any lake or river. Find drop-offs, deep holes, and underwater structure where fish hold — even offline with cached tiles.</p>
-            </div>
-            <div class="feature">
-                <div class="icon">📥</div>
-                <h3>Offline Maps <span class="pro-badge">Pro</span></h3>
-                <p>Download map tiles for your fishing area and use them without cell service. Manage your offline storage from the map screen — view cache size and clear tiles when needed.</p>
+                <div class="icon">🔔</div>
+                <h3>Push Notifications</h3>
+                <p>Get notified for weather alerts (severe storms, high winds), daily solunar best fishing times, and Fish Together session activity. Permission is requested contextually — not on first launch.</p>
             </div>
             <div class="feature">
                 <div class="icon">🌍</div>
@@ -212,14 +222,15 @@
                 <tbody>
                     <tr><td>Log catches with photos, GPS & weather</td><td><span class="check">✓</span> <span class="count">(10 catch limit)</span></td><td><span class="check">✓</span></td></tr>
                     <tr><td>Fish ID — 305 species field guide</td><td><span class="check">✓</span> <span class="count">(first 10)</span></td><td><span class="check">✓</span></td></tr>
-                    <tr><td>Interactive map with catch pins</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+                    <tr><td>Interactive map with catch pins</td><td><span class="cross">✗</span></td><td><span class="check">✓</span></td></tr>
+                    <tr><td>Map tools: nautical, depth, weather radar</td><td><span class="cross">✗</span></td><td><span class="check">✓</span></td></tr>
+                    <tr><td>Offline region caching</td><td><span class="cross">✗</span></td><td><span class="check">✓</span></td></tr>
                     <tr><td>Weather & 5-day forecast</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
                     <tr><td>Solunar best fishing times</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
                     <tr><td>Tackle box & catalog</td><td><span class="check">✓</span> <span class="count">(10 items)</span></td><td><span class="check">✓</span></td></tr>
                     <tr><td>Voice controls</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
                     <tr><td>Calendar & gallery</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
                     <tr><td>Multi-language (EN/FR/ES/DE/UK)</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-                    <tr><td>Nautical chart overlay (depths, wrecks)</td><td><span class="cross">✗</span></td><td><span class="check">✓</span></td></tr>
                     <tr><td>Community lake stats</td><td><span class="cross">✗</span></td><td><span class="check">✓</span></td></tr>
                     <tr><td>Cloud sync & Fish Together sessions</td><td><span class="cross">✗</span></td><td><span class="check">✓</span></td></tr>
                     <tr><td>Stats, charts & achievement badges</td><td><span class="cross">✗</span></td><td><span class="check">✓</span></td></tr>
