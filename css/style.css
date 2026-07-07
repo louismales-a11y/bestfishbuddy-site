@@ -214,7 +214,7 @@ nav .nav-links a.active {
   font-weight: 700;
   font-family: 'Montserrat', sans-serif;
   letter-spacing: 4px;
-  color: rgba(255,255,255,0.8);
+  color: #ffffff;
 }
 /* (moved to .hero-title-block rules above) */
 .hero .subtitle {
