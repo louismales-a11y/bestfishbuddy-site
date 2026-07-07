@@ -186,9 +186,11 @@ nav .nav-links a.active {
 }
 .hero-title-block { text-align: left; }
 .hero-title-block .flags {
-  font-size: 1.6rem;
-  letter-spacing: 8px;
-  margin-top: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: rgba(255,255,255,0.5);
+  margin-top: 8px;
 }
 .hero-title-block h1 {
   font-size: 3.2rem;
@@ -501,7 +503,7 @@ footer .footer-bottom p { font-size: 0.82rem; color: #6b7280; }
   .hero-title-block h1 { font-size: 1.7rem; }
   .hero-main { flex-direction: column; gap: 12px; }
   .hero-title-block { text-align: center; }
-  .hero-title-block .flags { font-size: 1.4rem; }
+  .hero-title-block .flags { font-size: 0.7rem; }
   .hero-buttons { flex-direction: column; align-items: center; }
   .hero-buttons .btn { width: 100%; max-width: 280px; }
   footer .footer-grid { grid-template-columns: 1fr; }
