@@ -444,7 +444,7 @@ body {
   transition: background 0.3s ease, color 0.3s ease;
 }
 body.dream-theme {
-  background: #06101E;
+  background: #06101E url('/assets/underwater.png') center / cover fixed no-repeat;
   color: #E0E6F0;
 }
 body.dream-theme p {
@@ -458,6 +458,18 @@ body.dream-theme .section-subtitle {
 }
 body.dream-theme section.alt {
   background: transparent;
+}
+body.dream-theme .hero {
+  background: rgba(10, 22, 40, 0.75);
+}
+body.dream-theme .hero::before {
+  opacity: 0.3;
+}
+body.dream-theme .page-header {
+  background: rgba(10, 22, 40, 0.7);
+}
+body.dream-theme .cta-section {
+  background: rgba(10, 22, 40, 0.75);
 }
 body.dream-theme .feature-card {
   background: rgba(14, 20, 34, 0.6);
