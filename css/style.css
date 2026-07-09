@@ -471,8 +471,9 @@ body.dream-theme {
 }
 .dream-fish img {
   display: block;
-  filter: brightness(1.8) contrast(0.9);
+  filter: invert(1) brightness(0.8);
   image-rendering: auto;
+  opacity: 1;
 }
 body.dream-theme p {
   color: rgba(224, 230, 240, 0.75);
