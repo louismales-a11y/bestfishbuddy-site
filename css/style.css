@@ -650,6 +650,7 @@ footer .footer-bottom p { font-size: 0.82rem; color: #6b7280; }
   section { padding: 48px 0; }
   .features-grid { grid-template-columns: 1fr; }
   .features-grid[style*="repeat(3, 1fr)"] { grid-template-columns: 1fr; }
+  .features-grid[style*="repeat(2, 1fr)"] { grid-template-columns: 1fr; }
   footer .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
   nav .nav-links {
     display: none;
@@ -669,6 +670,7 @@ footer .footer-bottom p { font-size: 0.82rem; color: #6b7280; }
   .page-header { padding: 48px 0 56px; }
   .content-page { padding: 40px 0; }
   .contact-card { padding: 28px; }
+
 }
 
 @media (max-width: 480px) {
@@ -679,4 +681,13 @@ footer .footer-bottom p { font-size: 0.82rem; color: #6b7280; }
   .hero-buttons { flex-direction: column; align-items: center; }
   .hero-buttons .btn { width: 100%; max-width: 280px; }
   footer .footer-grid { grid-template-columns: 1fr; }
+  .comparison-wrap table { min-width: 0; font-size: 0.75rem; }
+  .comparison-wrap th { padding: 8px 6px; font-size: 0.72rem; }
+  .comparison-wrap td { padding: 6px; font-size: 0.7rem; }
+  .comparison-wrap td:first-child { font-size: 0.7rem; }
+  .comparison-wrap .check { font-size: 0.9rem; }
+  .comparison-wrap .cross { font-size: 0.9rem; }
+  .comparison-wrap .count { font-size: 0.6rem; }
+  .comparison-wrap .btn-row td { padding: 8px; }
+  .comparison-wrap .btn-sm { padding: 5px 8px; font-size: 0.65rem; letter-spacing: 0; }
 }
