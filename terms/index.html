@@ -25,7 +25,7 @@
       <li><a href="/faq/">FAQ</a></li>
       <li><a href="/contact/">Contact</a></li>
     </ul>
-    <button class="dream-toggle" id="dreamToggle" aria-label="Toggle Dream Mode">🌙 Dream</button>
+    <button class="dream-toggle" id="dreamToggle" aria-label="Toggle Dream Mode">🎨 Classic</button>
   </div>
 </nav>
 
@@ -136,12 +136,13 @@
     const stored = localStorage.getItem('dream_theme');
     if (stored === 'true') {
       document.body.classList.add('dream-theme');
-      toggle.textContent = '🎨 Classic';
+      toggle.textContent = '🌙 Dream';
     }
     toggle.addEventListener('click', function() {
-      const isDream = document.body.classList.toggle('dream-theme');
-      localStorage.setItem('dream_theme', isDream);
-      toggle.textContent = isDream ? '🎨 Classic' : '🌙 Dream';
+      document.body.classList.toggle('dream-theme');
+      const isNowDream = document.body.classList.contains('dream-theme');
+      localStorage.setItem('dream_theme', isNowDream);
+      toggle.textContent = isNowDream ? '🌙 Dream' : '🎨 Classic';
     });
   })();
 </script>
