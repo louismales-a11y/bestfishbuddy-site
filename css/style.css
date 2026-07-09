@@ -266,7 +266,7 @@ section.alt { background: #fff; }
   padding: 28px;
   box-shadow: 0 1px 4px rgba(0,0,0,0.04);
   border: 1px solid #eef2f6;
-  transition: all 0.25s;
+  transition: all 0.3s ease;
 }
 .feature-card:hover {
   transform: translateY(-3px);
@@ -298,6 +298,7 @@ section.alt { background: #fff; }
   box-shadow: 0 2px 16px rgba(0,0,0,0.06);
   border: 1px solid #eef2f6;
   overflow-x: auto;
+  transition: all 0.3s ease;
 }
 .comparison-wrap table {
   width: 100%;
@@ -439,6 +440,9 @@ section.alt { background: #fff; }
 
 /* ─── Dream Theme ─── */
 /* Toggle via .dream-theme on <body> — transforms white areas to dark dream mode */
+body {
+  transition: background 0.3s ease, color 0.3s ease;
+}
 body.dream-theme {
   background: #06101E;
   color: #E0E6F0;
