@@ -571,39 +571,6 @@ body.dream-theme .contact-card .contact-item a {
 body.dream-theme .contact-card .note {
   color: rgba(224, 230, 240, 0.4);
 }
-
-/* Dream theme toggle button in nav */
-.dream-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  cursor: pointer;
-  border: 1px solid rgba(255,255,255,0.15);
-  background: rgba(255,255,255,0.06);
-  color: rgba(255,255,255,0.7);
-  transition: all 0.25s;
-  margin-left: 8px;
-  font-family: 'Inter', sans-serif;
-  letter-spacing: 0.3px;
-}
-.dream-toggle:hover {
-  background: rgba(118, 255, 3, 0.12);
-  border-color: rgba(118, 255, 3, 0.3);
-  color: #76FF03;
-}
-body.dream-theme .dream-toggle {
-  background: rgba(118, 255, 3, 0.12);
-  border-color: rgba(118, 255, 3, 0.3);
-  color: #76FF03;
-}
-body.dream-theme .dream-toggle:hover {
-  background: rgba(118, 255, 3, 0.2);
-}
-
 /* ─── Footer ─── */
 footer {
   background: #0A0E1A;
