@@ -437,6 +437,157 @@ section.alt { background: #fff; }
 .faq-item.open .faq-answer { display: block; }
 .faq-answer p { font-size: 0.92rem; margin-bottom: 0; }
 
+/* ─── Dream Theme ─── */
+/* Toggle via .dream-theme on <body> — transforms white areas to dark dream mode */
+body.dream-theme {
+  background: #06101E;
+  color: #E0E6F0;
+}
+body.dream-theme p {
+  color: rgba(224, 230, 240, 0.75);
+}
+body.dream-theme .section-title {
+  color: #76FF03;
+}
+body.dream-theme .section-subtitle {
+  color: rgba(224, 230, 240, 0.55);
+}
+body.dream-theme section.alt {
+  background: transparent;
+}
+body.dream-theme .feature-card {
+  background: rgba(14, 20, 34, 0.6);
+  border-color: rgba(0, 188, 212, 0.15);
+  backdrop-filter: blur(4px);
+}
+body.dream-theme .feature-card:hover {
+  border-color: rgba(0, 188, 212, 0.4);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+body.dream-theme .feature-card h3 {
+  color: #76FF03;
+}
+body.dream-theme .feature-card p {
+  color: rgba(224, 230, 240, 0.7);
+}
+body.dream-theme .comparison-wrap {
+  background: rgba(14, 20, 34, 0.6);
+  border-color: rgba(0, 188, 212, 0.15);
+  backdrop-filter: blur(4px);
+}
+body.dream-theme .comparison-wrap th {
+  background: rgba(10, 14, 26, 0.8);
+  color: #E0E6F0;
+}
+body.dream-theme .comparison-wrap th.free-col {
+  background: rgba(0, 188, 212, 0.15);
+  color: #00BCD4;
+}
+body.dream-theme .comparison-wrap th.pro-col {
+  background: rgba(118, 255, 3, 0.1);
+  color: #76FF03;
+}
+body.dream-theme .comparison-wrap td {
+  border-top-color: rgba(255,255,255,0.06);
+  color: #E0E6F0;
+}
+body.dream-theme .comparison-wrap td:first-child {
+  color: #E0E6F0;
+}
+body.dream-theme .comparison-wrap .count {
+  color: rgba(224, 230, 240, 0.4);
+}
+body.dream-theme .comparison-wrap .btn-row td {
+  background: rgba(10, 14, 26, 0.4);
+}
+body.dream-theme .btn-outline-dark {
+  color: #00BCD4;
+  border-color: rgba(0, 188, 212, 0.3);
+}
+body.dream-theme .btn-outline-dark:hover {
+  color: #76FF03;
+  border-color: #76FF03;
+  background: rgba(118, 255, 3, 0.08);
+}
+body.dream-theme .content-page {
+  background: transparent;
+}
+body.dream-theme .content-page .card {
+  background: rgba(14, 20, 34, 0.6);
+  border-color: rgba(0, 188, 212, 0.15);
+  backdrop-filter: blur(4px);
+}
+body.dream-theme .content-page h2 {
+  color: #76FF03;
+}
+body.dream-theme .content-page h3 {
+  color: #00BCD4;
+}
+body.dream-theme .content-page p,
+body.dream-theme .content-page li {
+  color: rgba(224, 230, 240, 0.8);
+}
+body.dream-theme .faq-item {
+  background: rgba(14, 20, 34, 0.6);
+  border-color: rgba(0, 188, 212, 0.15);
+  backdrop-filter: blur(4px);
+}
+body.dream-theme .faq-question {
+  color: #E0E6F0;
+}
+body.dream-theme .faq-question:hover {
+  background: rgba(255,255,255,0.04);
+}
+body.dream-theme .faq-question .arrow {
+  color: rgba(255,255,255,0.3);
+}
+body.dream-theme .faq-answer p {
+  color: rgba(224, 230, 240, 0.75);
+}
+body.dream-theme .contact-card {
+  background: rgba(14, 20, 34, 0.6);
+  border-color: rgba(0, 188, 212, 0.15);
+  backdrop-filter: blur(4px);
+}
+body.dream-theme .contact-card .contact-item a {
+  color: #00BCD4;
+}
+body.dream-theme .contact-card .note {
+  color: rgba(224, 230, 240, 0.4);
+}
+
+/* Dream theme toggle button in nav */
+.dream-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.7);
+  transition: all 0.25s;
+  margin-left: 8px;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.3px;
+}
+.dream-toggle:hover {
+  background: rgba(118, 255, 3, 0.12);
+  border-color: rgba(118, 255, 3, 0.3);
+  color: #76FF03;
+}
+body.dream-theme .dream-toggle {
+  background: rgba(118, 255, 3, 0.12);
+  border-color: rgba(118, 255, 3, 0.3);
+  color: #76FF03;
+}
+body.dream-theme .dream-toggle:hover {
+  background: rgba(118, 255, 3, 0.2);
+}
+
 /* ─── Footer ─── */
 footer {
   background: #0A0E1A;

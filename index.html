@@ -240,6 +240,22 @@
   document.getElementById('navToggle').addEventListener('click', function() {
     document.getElementById('navLinks').classList.toggle('open');
   });
+
+  // Dream theme toggle
+  (function() {
+    const toggle = document.getElementById('dreamToggle');
+    if (!toggle) return;
+    const stored = localStorage.getItem('dream_theme');
+    if (stored === 'true') {
+      document.body.classList.add('dream-theme');
+      toggle.textContent = '🎨 Classic';
+    }
+    toggle.addEventListener('click', function() {
+      const isDream = document.body.classList.toggle('dream-theme');
+      localStorage.setItem('dream_theme', isDream);
+      toggle.textContent = isDream ? '🎨 Classic' : '🌙 Dream';
+    });
+  })();
 </script>
 </body>
 </html>
