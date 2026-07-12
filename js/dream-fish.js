@@ -5,7 +5,7 @@
   var container = document.getElementById('fish-container');
   if (!container) return;
 
-  var fishFiles = ['fish1.png','fish2.png','fish3.png','fish4.png','fish5.png'];
+  var fishFiles = ['tfish1.png','tfish2.png','tfish3.png','tfish4.png','tfish5.png'];
   var count = 8;
   var fish = [];
 
@@ -31,7 +31,7 @@
         var h = window.innerHeight;
         state.size = 25 + Math.random() * 70;
         state.y = 0.03 * h + Math.random() * 0.9 * h;
-        state.opacity = 0.25 + Math.random() * 0.4;
+        state.opacity = 0.5 + Math.random() * 0.35;
         state.speed = 0.15 + Math.random() * 0.8;
         state.bobFreq = 1.5 + Math.random() * 4;
         state.bobAmp = 4 + Math.random() * 12;
@@ -55,7 +55,7 @@
         var h = window.innerHeight;
         f.size = 25 + Math.random() * 70;
         f.y = 0.03 * h + Math.random() * 0.9 * h;
-        f.opacity = 0.25 + Math.random() * 0.4;
+        f.opacity = 0.5 + Math.random() * 0.35;
         f.speed = 0.15 + Math.random() * 0.8;
         f.bobFreq = 1.5 + Math.random() * 4;
         f.bobAmp = 4 + Math.random() * 12;
