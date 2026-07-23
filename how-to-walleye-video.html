@@ -282,6 +282,9 @@
   <div id="watermark"><img src="/catchtales-logo.webp" alt="CatchTales"></div>
   <div id="sceneIndicator">1 / 28</div>
 
+  <!-- Audio -->
+  <audio id="voAudio" preload="auto"></audio>
+
   <!-- Background -->
   <div id="bgLayer"><img id="bgImg" src="/underwater.webp" alt=""><div class="overlay"></div></div>
 
@@ -671,6 +674,26 @@ function renderScene(idx, force) {
   textLayer.innerHTML = scene.text;
   textLayer.style.opacity = 1;
 
+  // Audio
+  const audio = document.getElementById('voAudio');
+  const audioNum = String(scene.id).padStart(2, '0');
+  const audioSrc = '/audio/' + audioNum + '-' + scene.caption.match(/'([^']+)'/)?.[1]?.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') + '.mp3';
+  // Fallback to index-based lookup
+  const audioFiles = [
+    '01-intro','02-canada-us','03-roadmap','04-what-is-walleye','05-low-light',
+    '06-solunar','07-spring','08-post-spawn','09-summer','10-prime-time',
+    '11-fall','12-winter','13-catchtales-log','14-gear-intro','15-rod-reel',
+    '16-lures','17-tackle-catalog','18-jigging','19-trolling','20-live-bait',
+    '21-tips-intro','22-tip-low-light','23-tip-slow','24-tip-fluoro',
+    '25-tip-electronics','26-tip-catchtales','27-outro','28-subscribe'
+  ];
+  const audioIdx = Math.min(idx, audioFiles.length - 1);
+  if (audioFiles[audioIdx]) {
+    audio.src = '/audio/' + audioFiles[audioIdx] + '.mp3';
+    audio.currentTime = 0;
+    audio.play().catch(() => {});
+  }
+
   // Caption
   captionText.textContent = scene.caption;
   captionTime.textContent = scene.ts;
@@ -715,6 +738,8 @@ function stopPlayback() {
   if (sceneTimer) { clearInterval(sceneTimer); sceneTimer = null; }
   playing = false;
   playBtn.textContent = '▶';
+  const audio = document.getElementById('voAudio');
+  if (audio) { audio.pause(); }
 }
 
 function tickLoop() {
