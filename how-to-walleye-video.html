@@ -704,9 +704,11 @@ function goPrev() {
   goToScene(currentScene - 1);
 }
 
-function tick(deltaMs) {
+function tick(ts) {
   if (!playing) return;
   
+  const deltaMs = ts - lastTimestamp;
+  lastTimestamp = ts;
   const delta = (deltaMs / 1000) * speed;
   sceneElapsed += delta;
   
@@ -741,7 +743,7 @@ function togglePlay() {
       goToScene(0);
     }
     lastTimestamp = performance.now();
-    animFrame = requestAnimationFrame(tick);
+    animFrame = requestAnimationFrame((t) => tick(t));
   } else {
     if (animFrame) cancelAnimationFrame(animFrame);
   }
