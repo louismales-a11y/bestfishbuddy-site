@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>▶ Fishing Safety Tips — Video Preview</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #000;
+    color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    overflow: hidden;
+  }
+  #player {
+    position: relative;
+    width: 100%;
+    max-width: 960px;
+    aspect-ratio: 16 / 9;
+    background: #0A1628;
+    overflow: hidden;
+  }
+  #bgLayer { position: absolute; inset: 0; z-index: 1; display: flex; align-items: center; justify-content: center; transition: opacity 1.2s ease; }
+  #bgLayer img { width: 100%; height: 100%; object-fit: cover; }
+  #bgLayer .overlay { position: absolute; inset: 0; background: rgba(10,22,40,0.5); }
+  #fgLayer { position: absolute; inset: 0; z-index: 2; display: flex; align-items: center; justify-content: center; transition: opacity 0.8s ease; }
+  #fgLayer img { max-width: 100%; max-height: 100%; object-fit: contain; }
+  #textLayer {
+    position: absolute; inset: 0; z-index: 3;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 40px; text-align: center; transition: opacity 0.6s ease;
+  }
+  #textLayer.top { justify-content: flex-start; padding-top: 6px; width: 100%; }
+  #textLayer .big { font-size: clamp(1.8em, 5vw, 3.5em); font-weight: 800; color: #76FF03; text-shadow: 0 2px 30px rgba(0,0,0,0.8); letter-spacing: 2px; }
+  #textLayer .big.cyan { color: #00BCD4; }
+  #textLayer .sub { font-size: clamp(0.9em, 2.2vw, 1.3em); color: #B0C4DE; margin-top: 8px; text-shadow: 0 2px 20px rgba(0,0,0,0.8); }
+  #textLayer .list { font-size: clamp(0.8em, 2vw, 1.1em); color: #fff; line-height: 2; text-shadow: 0 2px 20px rgba(0,0,0,0.8); }
+  #textLayer .list span { display: inline-block; background: rgba(0,188,212,0.15); border: 1px solid rgba(0,188,212,0.3); padding: 4px 16px; border-radius: 8px; margin: 3px; font-weight: 600; }
+  #textLayer .tip-text { font-size: clamp(1em, 3vw, 1.8em); font-weight: 700; color: #76FF03; text-shadow: 0 2px 20px rgba(0,0,0,0.8); }
+  #caption {
+    position: absolute; bottom: 0; left: 0; right: 0; z-index: 4;
+    padding: 40px 40px 20px; background: linear-gradient(transparent, rgba(0,0,0,0.85) 60%);
+    transition: opacity 0.5s ease;
+  }
+  #caption .text { font-size: clamp(0.85em, 2vw, 1.1em); color: #fff; text-shadow: 0 1px 10px rgba(0,0,0,0.5); line-height: 1.5; max-width: 80%; }
+  #caption .timecode { font-size: clamp(0.7em, 1.5vw, 0.85em); color: #99B0CC; margin-top: 4px; font-family: monospace; }
+  #timestamp { position: absolute; bottom: 20px; right: 30px; z-index: 5; font-size: clamp(0.8em, 1.8vw, 1em); color: rgba(255,255,255,0.6); font-family: monospace; text-shadow: 0 1px 10px rgba(0,0,0,0.5); }
+  #watermark { position: absolute; top: 12px; left: 12px; z-index: 5; opacity: 0.85; }
+  #watermark img { height: clamp(72px, 12vw, 108px); }
+  #sceneIndicator { position: absolute; top: 16px; right: 16px; z-index: 5; background: rgba(0,0,0,0.6); backdrop-filter: blur(8px); padding: 4px 12px; border-radius: 20px; font-size: clamp(0.65em, 1.2vw, 0.8em); color: rgba(255,255,255,0.5); font-family: monospace; border: 1px solid rgba(255,255,255,0.06); }
+  #controls {
+    width: 100%; max-width: 960px; background: rgba(0,0,0,0.9);
+    padding: 12px 20px; display: flex; align-items: center; gap: 14px; border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  #controls button { background: none; border: none; color: #fff; font-size: 1.3em; cursor: pointer; min-width: 44px; min-height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 8px; transition: background 0.2s; }
+  #controls button:hover { background: rgba(255,255,255,0.1); }
+  #controls .time { color: #99B0CC; font-size: 0.85em; font-family: monospace; min-width: 90px; }
+  #progressWrap { flex: 1; height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; cursor: pointer; position: relative; }
+  #progressBar { height: 100%; width: 0%; background: #00BCD4; border-radius: 3px; transition: width 0.1s linear; }
+  #controls .speed { color: #99B0CC; font-size: 0.75em; font-family: monospace; cursor: pointer; padding: 6px 10px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1); min-width: 44px; text-align: center; }
+  #controls .speed:hover { border-color: #00BCD4; color: #00BCD4; }
+  @media (max-width: 700px) {
+    #caption .text { max-width: 100%; font-size: 0.9em; }
+    #caption { padding: 30px 16px 14px; }
+    #textLayer { padding: 20px; }
+    #controls { padding: 8px 12px; gap: 8px; flex-wrap: wrap; }
+    #watermark img { height: clamp(48px, 10vw, 72px); }
+  }
+</style>
+</head>
+<body>
+
+<div id="player">
+  <div id="watermark"><img src="/images/catchtales-logo-video.png" alt="CatchTales"></div>
+  <div id="sceneIndicator">1 / 9</div>
+  <audio id="voAudio" preload="auto"></audio>
+  <div id="bgLayer"><img id="bgImg" src="" alt=""><div class="overlay"></div></div>
+  <div id="fgLayer" style="display:none;"><img id="fgImg" src="" alt=""></div>
+  <div id="textLayer"></div>
+  <div id="caption"><div class="text" id="captionText"></div><div class="timecode" id="captionTime"></div></div>
+  <div id="timestamp">0:00</div>
+</div>
+
+<div id="controls">
+  <button id="playBtn">&#9654;</button>
+  <span class="time"><span id="currentTime">0:00</span> / <span id="totalTime">1:12</span></span>
+  <div id="progressWrap"><div id="progressBar"></div></div>
+  <button id="prevBtn">&#9198;</button>
+  <button id="nextBtn">&#9197;</button>
+  <span class="speed" id="speedBtn">1x</span>
+</div>
+
+<script>
+const audioFiles = [
+  '01-intro','02-weather','03-lightning','04-pfd','05-hooks',
+  '06-sun-cold','07-emergency','08-checklist','09-outro'
+];
+const scenes = [
+  { id: 1, duration: 6, bg: '/images/fishing-safety-video/underwater.webp', fg: '/images/fishing-safety-video/catchtales-logo-video.png', text: '', caption: '"Fishing is safe, but a few things can go wrong if you are not prepared. Here are the top safety tips every angler should know."', ts: '0:00' },
+  { id: 2, duration: 8, bg: '/images/fishing-safety-video/storm-clouds.jpg', text: '<div class="big" style="font-size:clamp(1em,3.5vw,2em);">Weather Awareness</div><div class="sub">Check marine forecast not just weather app<br>Wind over 20 km/h is dangerous for small boats</div>', caption: '"Check the marine forecast, not just the weather app. Wind over 20 km per hour is dangerous for small boats."', ts: '0:06' },
+  { id: 3, duration: 8, bg: '/images/fishing-safety-video/lightning.jpg', text: '<div class="big cyan" style="font-size:clamp(1em,3.5vw,2em);">Lightning Safety</div><div class="sub">30-30 rule: under 30 seconds = get off water<br>Wait 30 minutes after last strike</div>', caption: '"The 30-30 rule: if thunder follows lightning in under 30 seconds, get off the water. Wait 30 minutes after the last strike."', ts: '0:14' },
+  { id: 4, duration: 8, bg: '/images/fishing-safety-video/life-jacket.jpg', text: '<div class="big" style="font-size:clamp(1em,3.5vw,2em);">Wear Your PFD</div><div class="sub">Not sitting on it — wearing it<br>Carry a whistle or air horn</div>', caption: '"Wear your PFD, do not just sit on it. Carry a whistle. Know navigation rules."', ts: '0:22' },
+  { id: 5, duration: 8, bg: '/images/fishing-safety-video/first-aid-kit.jpg', text: '<div class="big cyan" style="font-size:clamp(1em,3.5vw,2em);">Hook Removal</div><div class="sub">Push through, cut barb, back out<br>Eye or deep hook: leave it, seek medical help</div>', caption: '"For shallow hooks: push through, cut the barb, back it out. For eye or deep hooks: leave it, seek medical attention."', ts: '0:30' },
+  { id: 6, duration: 10, bg: '/images/fishing-safety-video/sunscreen.jpg', text: '<div class="big" style="font-size:clamp(0.9em,3vw,1.6em);">Sun &amp; Cold Water</div><div class="sub">Water doubles UV exposure — SPF 30+<br>Dress for water temp, not air temp</div>', caption: '"Water doubles your UV exposure. Use SPF 30 plus, wear UPF clothing. Dress for the water temperature, not the air temperature."', ts: '0:38' },
+  { id: 7, duration: 8, bg: '/images/fishing-safety-video/angler-boat.jpg', text: '<div class="big cyan" style="font-size:clamp(1em,3.5vw,2em);">Emergency Procedures</div><div class="sub">Stay calm. Call 911 or channel 16.<br>If someone goes overboard: throw, don\'t go</div>', caption: '"Stay calm. Call 911 or marine radio channel 16. If someone goes overboard: throw, don\'t go."', ts: '0:48' },
+  { id: 8, duration: 8, bg: '/images/fishing-safety-video/underwater.webp', text: '<div class="big" style="font-size:clamp(1em,3.5vw,2em);">Safety Gear Checklist</div><div class="list"><span>PFD</span> <span>Whistle</span> <span>First Aid Kit</span><br><span>Sunscreen</span> <span>Polarized Sunglasses</span><br><span>Phone + Waterproof Case</span> <span>Headlamp</span></div>', caption: '"Tape this to your tackle box: PFD, whistle, first aid kit, sunscreen, polarized sunglasses, phone, and a headlamp."', ts: '0:56' },
+  { id: 9, duration: 8, bg: '/images/fishing-safety-video/underwater.webp', fg: '/images/fishing-safety-video/catchtales-logo-video.png', text: '<div style="font-size:clamp(2.7em,6.6vw,3.9em);font-weight:800;color:#00BCD4;text-shadow:0 2px 30px rgba(0,0,0,0.8);">catchtales.com</div>', textClass: 'top', caption: '"Log your trips in CatchTales, check the weather, and fish smart. Subscribe for more tips."', ts: '1:04' }
+];
+
+const totalDuration = scenes.reduce((a, s) => a + s.duration, 0);
+let currentScene = 0, sceneElapsed = 0, playing = false, speed = 1, sceneTimer = null, playStartTime = 0;
+
+const bgImg = document.getElementById('bgImg'), fgImg = document.getElementById('fgImg'), fgLayer = document.getElementById('fgLayer');
+const textLayer = document.getElementById('textLayer'), captionText = document.getElementById('captionText'), captionTime = document.getElementById('captionTime');
+const currentTimeEl = document.getElementById('currentTime'), totalTimeEl = document.getElementById('totalTime'), progressBar = document.getElementById('progressBar');
+const playBtn = document.getElementById('playBtn'), sceneIndicator = document.getElementById('sceneIndicator'), timestamp = document.getElementById('timestamp');
+
+totalTimeEl.textContent = formatTime(totalDuration);
+function formatTime(s) { return Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0'); }
+
+function renderScene(idx) {
+  const s = scenes[idx]; if (!s) return;
+  currentScene = idx;
+  sceneIndicator.textContent = `${s.id} / ${scenes.length}`;
+  bgImg.src = s.bg;
+  if (s.fg) { fgLayer.style.display = 'flex'; fgImg.src = s.fg; } else { fgLayer.style.display = 'none'; }
+  textLayer.innerHTML = s.text;
+  textLayer.className = s.textClass || '';
+  captionText.textContent = s.caption;
+  captionTime.textContent = s.ts;
+  const audio = document.getElementById('voAudio');
+  if (audioFiles[idx]) { audio.src = '/images/fishing-safety-video/audio/'+audioFiles[idx]+'.mp3'; audio.currentTime = 0; audio.play().catch(()=>{}); }
+  updateProgress();
+}
+
+function goToScene(idx) {
+  if (idx < 0) idx = 0; if (idx >= scenes.length) idx = scenes.length - 1;
+  stopPlayback(); sceneElapsed = 0; renderScene(idx); updateProgress();
+}
+
+function updateProgress() {
+  let acc = 0; for (let i = 0; i < currentScene; i++) acc += scenes[i].duration;
+  const global = acc + sceneElapsed;
+  progressBar.style.width = `${(global / totalDuration) * 100}%`;
+  currentTimeEl.textContent = formatTime(global);
+  timestamp.textContent = formatTime(global);
+}
+
+function stopPlayback() {
+  if (sceneTimer) { clearInterval(sceneTimer); sceneTimer = null; }
+  playing = false; playBtn.textContent = '\u25B6';
+  const a = document.getElementById('voAudio'); if (a) a.pause();
+}
+
+function tickLoop() {
+  if (!playing) return;
+  const elapsed = (performance.now() - playStartTime) / 1000 * speed;
+  if (elapsed >= totalDuration) { stopPlayback(); renderScene(scenes.length - 1); updateProgress(); return; }
+  let acc = 0;
+  for (let i = 0; i < scenes.length; i++) {
+    if (acc + scenes[i].duration >= elapsed) {
+      if (i !== currentScene) { currentScene = i; sceneElapsed = elapsed - acc; renderScene(i); }
+      updateProgress(); return;
+    }
+    acc += scenes[i].duration;
+  }
+}
+
+function togglePlay() {
+  if (playing) { stopPlayback(); return; }
+  playing = true; playBtn.textContent = '\u23F8';
+  if (currentScene >= scenes.length - 1) { currentScene = 0; sceneElapsed = 0; }
+  let acc = 0; for (let i = 0; i < currentScene; i++) acc += scenes[i].duration;
+  playStartTime = performance.now() - (acc / speed) * 1000;
+  sceneTimer = setInterval(tickLoop, 100);
+}
+
+playBtn.addEventListener('click', togglePlay);
+prevBtn.addEventListener('click', () => goToScene(currentScene - 1));
+nextBtn.addEventListener('click', () => goToScene(currentScene + 1));
+document.addEventListener('keydown', e => { if (e.code === 'Space') { e.preventDefault(); togglePlay(); } });
+speedBtn.addEventListener('click', () => {
+  const speeds = [0.5, 1, 1.5, 2]; let i = speeds.indexOf(speed); i = (i + 1) % speeds.length;
+  speed = speeds[i]; speedBtn.textContent = speed + 'x';
+  if (playing) { stopPlayback(); togglePlay(); }
+});
+document.getElementById('progressWrap').addEventListener('click', e => {
+  const pct = (e.clientX - e.currentTarget.getBoundingClientRect().left) / e.currentTarget.offsetWidth;
+  const target = pct * totalDuration;
+  let acc = 0; for (let i = 0; i < scenes.length; i++) {
+    if (acc + scenes[i].duration >= target) { stopPlayback(); currentScene = i; sceneElapsed = 0; renderScene(i); updateProgress(); return; }
+    acc += scenes[i].duration;
+  }
+});
+goToScene(0);
+</script>
+</body>
+</html>
