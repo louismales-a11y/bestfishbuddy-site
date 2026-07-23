@@ -132,6 +132,8 @@
   }
   #textLayer .tip-icon { font-size: clamp(2em, 6vw, 4em); margin-bottom: 6px; }
   #textLayer .tip-text { font-size: clamp(1em, 3vw, 1.8em); font-weight: 700; color: #76FF03; text-shadow: 0 2px 20px rgba(0,0,0,0.8); }
+  #textLayer.top { justify-content: flex-start; padding-top: 6px; width: 100%; }
+  #textLayer.bottom { justify-content: flex-end; padding-bottom: 30px; }
   #textLayer .countdown {
     font-size: clamp(4em, 12vw, 8em);
     font-weight: 900;
@@ -246,7 +248,7 @@
     z-index: 5;
     opacity: 0.7;
   }
-  #watermark img { height: clamp(48px, 8vw, 72px); }
+  #watermark img { height: clamp(72px, 12vw, 108px); }
 
   /* Scene indicator */
   #sceneIndicator {
@@ -317,7 +319,7 @@ const scenes = [
     id: 1,
     start: 0, duration: 6,
     bg: '/images/fisherman-cast.jpg',
-    fg: '/catchtales-logo.webp',
+    fg: '',
     fgClass: '',
     text: '',
     caption: '"Walleye are one of the most popular game fish in North America..."',
@@ -341,9 +343,9 @@ const scenes = [
     fg: '',
     fgClass: '',
     text: '<div style="display:flex;gap:clamp(12px,3vw,30px);flex-wrap:wrap;justify-content:center;">'
-      + '<div style="background:rgba(0,188,212,0.15);border:2px solid #00BCD4;border-radius:14px;padding:10px 20px;font-weight:700;font-size:clamp(0.8em,2.5vw,1.2em);">📍 WHERE</div>'
-      + '<div style="background:rgba(0,188,212,0.15);border:2px solid #00BCD4;border-radius:14px;padding:10px 20px;font-weight:700;font-size:clamp(0.8em,2.5vw,1.2em);">⚙️ GEAR</div>'
-      + '<div style="background:rgba(0,188,212,0.15);border:2px solid #00BCD4;border-radius:14px;padding:10px 20px;font-weight:700;font-size:clamp(0.8em,2.5vw,1.2em);">🎣 TECHNIQUES</div>'
+      + '<div style="background:rgba(0,188,212,0.15);border:2px solid #00BCD4;border-radius:14px;padding:10px 20px;font-weight:700;font-size:clamp(0.8em,2.5vw,1.2em);"> WHERE</div>'
+      + '<div style="background:rgba(0,188,212,0.15);border:2px solid #00BCD4;border-radius:14px;padding:10px 20px;font-weight:700;font-size:clamp(0.8em,2.5vw,1.2em);"> GEAR</div>'
+      + '<div style="background:rgba(0,188,212,0.15);border:2px solid #00BCD4;border-radius:14px;padding:10px 20px;font-weight:700;font-size:clamp(0.8em,2.5vw,1.2em);"> TECHNIQUES</div>'
       + '</div>',
     caption: '"In this video — where to find them, what gear, and techniques."',
     ts: '0:11'
@@ -375,7 +377,7 @@ const scenes = [
     bg: '/underwater.webp',
     fg: '/images/walkthrough/screen-solunar.png',
     fgClass: 'phone',
-    text: '<div style="position:absolute;top:40%;right:8%;font-size:clamp(2em,6vw,4em);animation: pulse 0.8s ease infinite alternate;">⬇️</div>',
+    text: '<div style="position:absolute;top:40%;right:8%;font-size:clamp(2em,6vw,4em);animation: pulse 0.8s ease infinite alternate;"></div>',
     caption: '"Fish when light is LOW — the solunar screen shows you the best times."',
     ts: '0:28'
   },
@@ -385,7 +387,7 @@ const scenes = [
     bg: '/images/ontario-topo.webp',
     fg: '',
     fgClass: '',
-    text: '<div class="big" style="font-size:clamp(1em,3.5vw,2em);">🌸 SPRING</div><div class="sub">40-50°F · Shallow rivers · Gravel bars</div>',
+    text: '<div class="big" style="font-size:clamp(1em,3.5vw,2em);"> SPRING</div><div class="sub">40-50°F · Shallow rivers · Gravel bars</div>',
     caption: '"Spring — they spawn when water hits 40-50°F. Look in shallow rivers, rocky shorelines."',
     ts: '0:34'
   },
@@ -405,7 +407,7 @@ const scenes = [
     bg: '/images/depth-chart-illustration.jpg',
     fg: '',
     fgClass: '',
-    text: '<div style="position:absolute;top:10%;left:8%;background:rgba(0,0,0,0.7);padding:6px 14px;border-radius:8px;font-size:clamp(0.7em,1.8vw,1em);border:1px solid #76FF03;">☀️ SUMMER · 15-30 ft</div>',
+    text: '<div style="position:absolute;top:10%;left:8%;background:rgba(0,0,0,0.7);padding:6px 14px;border-radius:8px;font-size:clamp(0.7em,1.8vw,1em);border:1px solid #76FF03;"> SUMMER · 15-30 ft</div>',
     caption: '"Summer — points, humps, weed edges in 15-30 feet. Most active low-light."',
     ts: '0:43'
   },
@@ -415,7 +417,7 @@ const scenes = [
     bg: '/images/fisherman-holding-fish.webp',
     fg: '',
     fgClass: '',
-    text: '<div class="big" style="font-size:clamp(0.9em,2.5vw,1.5em);color:#00BCD4;">🌅 Prime Time</div><div class="sub">Early morning · Evening</div>',
+    text: '<div class="big" style="font-size:clamp(0.9em,2.5vw,1.5em);color:#00BCD4;"> Prime Time</div><div class="sub">Early morning · Evening</div>',
     caption: '"Prime time: early morning and evening."',
     ts: '0:49'
   },
@@ -425,7 +427,7 @@ const scenes = [
     bg: '/images/angler-bend-rod.jpg',
     fg: '',
     fgClass: '',
-    text: '<div class="big" style="font-size:clamp(1em,3.5vw,2em);color:#FF9800;">🍂 FALL</div><div class="sub">10-20 ft · More aggressive</div>',
+    text: '<div class="big" style="font-size:clamp(1em,3.5vw,2em);color:#FF9800;"> FALL</div><div class="sub">10-20 ft · More aggressive</div>',
     caption: '"Fall — they feed heavy for winter. Shallower and more aggressive."',
     ts: '0:54'
   },
@@ -435,7 +437,7 @@ const scenes = [
     bg: '/images/ice-fishing.webp',
     fg: '',
     fgClass: '',
-    text: '<div class="big" style="font-size:clamp(1em,3.5vw,2em);color:#90CAF9;">❄️ WINTER</div><div class="sub">Deep basins · 15-35 ft · Active under ice</div>',
+    text: '<div class="big" style="font-size:clamp(1em,3.5vw,2em);color:#90CAF9;"> WINTER</div><div class="sub">Deep basins · 15-35 ft · Active under ice</div>',
     caption: '"Winter — active under the ice in deep basins, 15-35 feet."',
     ts: '0:59'
   },
@@ -455,27 +457,27 @@ const scenes = [
     bg: '/underwater.webp',
     fg: '',
     fgClass: '',
-    text: '<div class="big cyan" style="font-size:clamp(1.2em,3.5vw,2em);">⚙️ ESSENTIAL GEAR</div>',
+    text: '<div class="big cyan" style="font-size:clamp(1.2em,3.5vw,2em);"> ESSENTIAL GEAR</div>',
     caption: '"You don\'t need much. Here\'s the kit:"',
     ts: '1:09'
   },
   {
     id: 15,
     start: 73, duration: 5,
-    bg: '/images/fishing-lures.webp',
+    bg: '/images/trolling-boat.webp',
     fg: '',
     fgClass: '',
-    text: '<div class="list">🎣 <span>6\'6" Rod</span> · <span>Size 2500 Reel</span> · <span>8-10 lb Line</span></div>',
+    text: '<div class="list"> <span>6\'6" Rod</span> · <span>Size 2500 Reel</span> · <span>8-10 lb Line</span></div>',
     caption: '"Rod, reel, line — medium-light spinning, fluorocarbon leader."',
     ts: '1:13'
   },
   {
     id: 16,
     start: 78, duration: 5,
-    bg: '/underwater.webp',
+    bg: '/images/fishing-lures.webp',
     fg: '',
     fgClass: '',
-    text: '<div class="list">🏋️ <span>1/4-3/8 oz Jigs</span> · 🐟 <span>Paddletails</span> · 🚤 <span>Crankbaits</span></div>',
+    text: '<div class="list"> <span>1/4-3/8 oz Jigs</span> ·  <span>Paddletails</span> ·  <span>Crankbaits</span></div>',
     caption: '"Jigs in chartreuse and orange, paddletail swimbaits, deep-diving crankbaits."',
     ts: '1:18'
   },
@@ -496,9 +498,9 @@ const scenes = [
     fg: '',
     fgClass: '',
     text: '<div style="display:flex;flex-direction:column;gap:8px;align-items:center;">'
-      + '<div class="big" style="font-size:clamp(2em,6vw,4em);color:#fff;">⬆️ LIFT</div>'
-      + '<div class="big" style="font-size:clamp(2em,6vw,4em);color:#00BCD4;">⬇️ DROP</div>'
-      + '<div class="big" style="font-size:clamp(2.5em,7vw,5em);color:#76FF03;">🔥 SET!</div>'
+      + '<div class="big" style="font-size:clamp(2em,6vw,4em);color:#fff;"> LIFT</div>'
+      + '<div class="big" style="font-size:clamp(2em,6vw,4em);color:#00BCD4;"> DROP</div>'
+      + '<div class="big" style="font-size:clamp(2.5em,7vw,5em);color:#76FF03;"> SET!</div>'
       + '</div>',
     caption: '"Jig fishing — cast, let sink, lift and lower. Walleye hit on the drop. Be ready."',
     ts: '1:28'
@@ -509,17 +511,17 @@ const scenes = [
     bg: '/images/trolling-boat.webp',
     fg: '',
     fgClass: '',
-    text: '<div class="sub" style="margin-top:auto;padding-bottom:10px;color:#76FF03;font-size:clamp(0.8em,2vw,1em);">🚤 1.5 - 2.5 mph · Points &amp; Humps</div>',
+    text: '<div class="sub" style="margin-top:auto;padding-bottom:10px;color:#76FF03;font-size:clamp(0.8em,2vw,1em);"> 1.5 - 2.5 mph · Points &amp; Humps</div>',
     caption: '"Trolling — crankbaits at 1.5-2.5 mph along points and humps."',
     ts: '1:35'
   },
   {
     id: 20,
     start: 100, duration: 5,
-    bg: '/images/fish-closeup.webp',
+    bg: '/images/live-bait.jpg',
     fg: '',
     fgClass: '',
-    text: '<div class="sub" style="font-size:clamp(0.9em,2.5vw,1.3em);">🪱 Lind Rig · Live minnow or nightcrawler<br>Drag slow along the bottom</div>',
+    text: '<div class="sub" style="font-size:clamp(0.9em,2.5vw,1.3em);"> Lind Rig · Live minnow or nightcrawler<br>Drag slow along the bottom</div>',
     caption: '"Live bait — sliding sinker rig with a minnow or nightcrawler. Deadly simple."',
     ts: '1:40'
   },
@@ -539,7 +541,7 @@ const scenes = [
     bg: '/images/fisherman-holding-fish.webp',
     fg: '',
     fgClass: '',
-    text: '<div class="tip-icon">🌅</div><div class="tip-text">LOW LIGHT</div><div class="sub">Dawn · Dusk · Overcast</div>',
+    text: '<div class="tip-text">LOW LIGHT</div><div class="sub">Dawn · Dusk · Overcast</div>',
     caption: '"Fish low light — dawn, dusk, overcast days produce best."',
     ts: '1:49'
   },
@@ -549,7 +551,7 @@ const scenes = [
     bg: '/images/fisherman-cast.jpg',
     fg: '',
     fgClass: '',
-    text: '<div class="tip-icon">🐢</div><div class="tip-text">GO SLOW</div><div class="sub">Slow presentation · Frequent pauses</div>',
+    text: '<div class="tip-text">GO SLOW</div><div class="sub">Slow presentation · Frequent pauses</div>',
     caption: '"Go slow — walleye aren\'t speedsters. Slow presentations trigger strikes."',
     ts: '1:54'
   },
@@ -559,7 +561,7 @@ const scenes = [
     bg: '/images/angler-bend-rod.jpg',
     fg: '',
     fgClass: '',
-    text: '<div class="tip-icon">🪢</div><div class="tip-text">FLUORO LEADER</div><div class="sub">3-4 ft · Line-shy in clear water</div>',
+    text: '<div class="tip-text">FLUORO LEADER</div><div class="sub">3-4 ft · Line-shy in clear water</div>',
     caption: '"Use a fluorocarbon leader — walleye are line-shy in clear water."',
     ts: '1:59'
   },
@@ -569,7 +571,7 @@ const scenes = [
     bg: '/images/fish-finder.jpg',
     fg: '',
     fgClass: '',
-    text: '<div class="tip-icon">📡</div><div class="tip-text">USE ELECTRONICS</div><div class="sub">Fish finder is nearly essential</div>',
+    text: '<div class="tip-text">USE ELECTRONICS</div><div class="sub">Fish finder is nearly essential</div>',
     caption: '"Watch your fish finder — almost essential for finding deep water walleye."',
     ts: '2:04'
   },
@@ -600,8 +602,8 @@ const scenes = [
     bg: '/underwater.webp',
     fg: '',
     fgClass: '',
-    text: '<div class="big cyan" style="font-size:clamp(1.2em,3.5vw,2em);margin-bottom:10px;">👍 Subscribe for more fishing tips</div>'
-      + '<div class="sub" style="font-size:clamp(1em,2.5vw,1.5em);color:#76FF03;">Tight lines! 🎣</div>',
+    text: '<div class="big cyan" style="font-size:clamp(1.2em,3.5vw,2em);margin-bottom:10px;"> Subscribe for more fishing tips</div>'
+      + '<div class="sub" style="font-size:clamp(1em,2.5vw,1.5em);color:#76FF03;">Tight lines! </div>',
     caption: '"Subscribe for more fishing tips. Tight lines!"',
     ts: '2:20'
   }
