@@ -587,7 +587,8 @@ const scenes = [
     bg: '/underwater.webp',
     fg: '/images/catchtales-logo-video.png',
     fgClass: '',
-    text: '<div class="sub" style="margin-top:20px;color:#00BCD4;">catchtales.com</div>',
+    text: '<div class="sub" style="color:#00BCD4;">catchtales.com</div>',
+    textClass: 'bottom',
     caption: '"Download CatchTales — track catches, AI fish ID, solunar, maps, and more."',
     ts: '2:14'
   },
@@ -672,6 +673,7 @@ function renderScene(idx, force) {
 
   // Text
   textLayer.innerHTML = scene.text;
+  textLayer.className = scene.textClass || '';
   textLayer.style.opacity = 1;
 
   // Audio
