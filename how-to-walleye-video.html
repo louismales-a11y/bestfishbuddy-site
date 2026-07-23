@@ -246,7 +246,7 @@
     z-index: 5;
     opacity: 0.7;
   }
-  #watermark img { height: clamp(24px, 4vw, 36px); }
+  #watermark img { height: clamp(48px, 8vw, 72px); }
 
   /* Scene indicator */
   #sceneIndicator {
@@ -279,7 +279,7 @@
 
 <div id="player">
   <!-- Watermark -->
-  <div id="watermark"><img src="/catchtales-logo.webp" alt="CatchTales"></div>
+  <div id="watermark"><img src="/images/catchtales-logo-video.png" alt="CatchTales"></div>
   <div id="sceneIndicator">1 / 28</div>
 
   <!-- Audio -->
@@ -585,7 +585,7 @@ const scenes = [
     id: 27,
     start: 134, duration: 6,
     bg: '/underwater.webp',
-    fg: '/catchtales-logo.webp',
+    fg: '/images/catchtales-logo-video.png',
     fgClass: '',
     text: '<div class="sub" style="margin-top:20px;color:#00BCD4;">catchtales.com</div>',
     caption: '"Download CatchTales — track catches, AI fish ID, solunar, maps, and more."',
